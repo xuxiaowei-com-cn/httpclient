@@ -24,6 +24,15 @@ class HttpUtilsTests {
     }
 
     @Test
+    void getUriScheme() throws URISyntaxException {
+        Map<String, String> params = new HashMap<>();
+        params.put("username", "xuxiaowei");
+        params.put("password", "123");
+        URI uri1 = HttpUtils.getUri("http", "www.baidu.com", "/s", params);
+        log.info(uri1.toString());
+    }
+
+    @Test
     void getUri() throws URISyntaxException {
         Map<String, String> params = new HashMap<>();
         params.put("username", "xuxiaowei");

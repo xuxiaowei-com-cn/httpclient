@@ -41,6 +41,22 @@ public class HttpUtils {
     /**
      * 构建 URI 地址
      *
+     * @param scheme 协议，如：http、https
+     * @param host   域名，如：www.google.com
+     * @param path   路径，如：/search
+     * @param params 参数
+     * @return 返回 URI 地址
+     * @throws URISyntaxException 构建 URI 异常
+     */
+    public static URI getUri(String scheme, String host, String path, Map<String, String> params) throws URISyntaxException {
+        URIBuilder uriBuilder = new URIBuilder().setScheme(scheme).setHost(host).setPath(path);
+        String uri = uriBuilder.toString();
+        return getUri(uri, params);
+    }
+
+    /**
+     * 构建 URI 地址
+     *
      * @param params 参数
      * @return 返回 URI 地址
      * @throws URISyntaxException 构建 URI 异常
