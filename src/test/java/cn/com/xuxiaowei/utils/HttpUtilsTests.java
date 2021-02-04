@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +21,17 @@ class HttpUtilsTests {
     @Test
     void start() {
 
+    }
+
+    @Test
+    void getUri() throws URISyntaxException {
+        Map<String, String> params = new HashMap<>();
+        params.put("username", "xuxiaowei");
+        params.put("password", "123");
+        URI uri1 = HttpUtils.getUri("http://www.baidu.com", params);
+        log.info(uri1.toString());
+        URI uri2 = HttpUtils.getUri("http://www.baidu.com?a=1", params);
+        log.info(uri2.toString());
     }
 
     @Test

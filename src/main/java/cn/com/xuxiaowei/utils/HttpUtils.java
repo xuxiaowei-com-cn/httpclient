@@ -39,6 +39,18 @@ public class HttpUtils {
     }
 
     /**
+     * 构建 URI 地址
+     *
+     * @param params 参数
+     * @return 返回 URI 地址
+     * @throws URISyntaxException 构建 URI 异常
+     */
+    public static URI getUri(String uri, Map<String, String> params) throws URISyntaxException {
+        URIBuilder uriBuilder = new URIBuilder(uri);
+        return uriBuilder(uriBuilder, params).build();
+    }
+
+    /**
      * Map 参数转换
      *
      * @param uriBuilder URI生成器
